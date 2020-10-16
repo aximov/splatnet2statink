@@ -477,7 +477,7 @@ def monitor_battles(s_flag, t_flag, r_flag, secs, debug):
 			print("{} mirror match{} against your Splatfest team.".format(mirror_matches, m_plural))
 		print("Bye!")
 
-def get_num_battles():
+def get_num_battles(filename):
 	'''Returns number of battles to upload along with results JSON.'''
 
 	while True:
@@ -1267,7 +1267,7 @@ def blackout(image_result_content, players):
 		pass
 	return scoreboard
 
-if __name__ == "__main__":
+def s2s():
 	m_value, is_s, is_t, is_r, filename, salmon = main()
 	if salmon: # salmon run mode
 		salmonrun.upload_salmon_run(A_VERSION, YOUR_COOKIE, API_KEY, app_head, is_r)
@@ -1279,8 +1279,11 @@ if __name__ == "__main__":
 		elif is_r: # r flag exists without m, so run only the recent battle upload
 			populate_battles(is_s, is_t, is_r, debug)
 		else:
-			n, results = get_num_battles()
+			n, results = get_num_battles(filename)
 			for i in reversed(range(n)):
 				post_battle(i, results, is_s, is_t, m_value, True if i == 0 else False, debug)
 			if debug:
 				print("")
+
+if __name__ == "__main__":
+  s2s()
