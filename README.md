@@ -10,7 +10,7 @@ splatnet2statink is a script that uploads battle data from the SplatNet 2 app ("
 ## Google Cloud Functions Deployment
 
 ```shell
-gcloud functions deploy s2s --runtime python38 --region asia-northeast1 --timeout 540s --trigger-topic inkoming
+gcloud functions deploy s2s_pubsub --runtime python38 --region asia-northeast1 --timeout 540s --trigger-topic inkoming
 ```
 
 ## Usage
