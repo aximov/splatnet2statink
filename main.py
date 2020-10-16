@@ -1086,10 +1086,7 @@ def post_battle(i, results, s_flag, t_flag, m_flag, sendgears, debug, ismonitor=
 	################
 	if YOUR_COOKIE != "" or debug: # requires online (or battle json). if no cookie, don't do - will fail
 		mystats = [mode, rule, result, k_or_a, death, special, weapon, level_before, rank_before, turfinked, title_before, principal_id, star_rank, gender, species]
-		if filename == None:
-			payload = set_scoreboard(payload, bn, mystats, s_flag)
-		else:
-			payload = set_scoreboard(payload, bn, mystats, s_flag, results[0])
+		payload = set_scoreboard(payload, bn, mystats, s_flag)
 
 	##################
 	## IMAGE RESULT ##
@@ -1290,6 +1287,9 @@ def s2s():
 				post_battle(i, results, is_s, is_t, m_value, True if i == 0 else False, debug)
 			if debug:
 				print("")
+
+def s2s_pubsub(event, context):
+	s2s()
 
 if __name__ == "__main__":
   s2s()
