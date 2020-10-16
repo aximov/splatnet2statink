@@ -1206,7 +1206,7 @@ def post_battle(i, results, s_flag, t_flag, m_flag, sendgears, debug, ismonitor=
 		url  = 'https://stat.ink/api/v2/battle'
 		auth = {'Authorization': 'Bearer {}'.format(API_KEY), 'Content-Type': 'application/x-msgpack'}
 
-		if payload["agent"] != os.path.basename(__file__)[:-3]:
+		if payload["agent"] != 'splatnet2statink':
 			print("Could not upload. Please contact @frozenpandaman on Twitter/GitHub for assistance.")
 			sys.exit(1)
 		postbattle = requests.post(url, headers=auth, data=msgpack.packb(payload), allow_redirects=False)
