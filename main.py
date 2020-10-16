@@ -1268,7 +1268,13 @@ def blackout(image_result_content, players):
 	return scoreboard
 
 def s2s():
-	m_value, is_s, is_t, is_r, filename, salmon = main()
+	m_value = -1
+	is_s = False
+	is_t = False
+	is_r = True
+	filename = None
+	salmon = False
+
 	if salmon: # salmon run mode
 		salmonrun.upload_salmon_run(A_VERSION, YOUR_COOKIE, API_KEY, app_head, is_r)
 	else: # normal mode
